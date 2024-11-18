@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
+    id "io.freefair.lombok" version "8.6"
+}
+
+group = "io.github.beduality"
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        url = "https://repo.aikar.co/content/groups/aikar/"
+    }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT"
+    implementation "co.aikar:acf-paper:0.5.0-SNAPSHOT"
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+bukkit {
+    name = "Metachickens"
+    version = project.version
+    main = "io.github.beduality.metachickens.MetachickensPlugin"
+    description = "Inject mob DNA into a chick, watch it lay eggs of other mobs, and craft spawners."
+    apiVersion = "1.20"
+    author = "Block-Entity Duality Team"
+    website = "https://github.com/beduality/metachickens"
+}
+
+shadowJar {
+   archiveBaseName.set('Metachickens')
+   archiveClassifier.set('')
+   archiveVersion.set(project.version)
+}
