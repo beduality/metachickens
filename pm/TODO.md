@@ -11,3 +11,4 @@
 - [ ] Ensure modified DNA affects chicken offspring.
 - [ ] Add permissions.
 - [ ] Add configurations.
+- [ ] Add GIFs/videos to docs.
